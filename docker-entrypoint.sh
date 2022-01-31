@@ -12,13 +12,12 @@ STORAGE_CONTAINER_NAME="samples-workitems"
 # - create storage container
 if [ ! -e /var/cache/$CONTAINER_FIRST_STARTUP ]; then
     mkdir -p /var/cache/
-    sudo touch /var/cache/$CONTAINER_FIRST_STARTUP
 
-    dotnet tool restore
-    dotnet restore
-    dotnet build
+    dotnet tool restore && dotnet build
 
     az storage container create -n $STORAGE_CONTAINER_NAME --connection-string $AzureWebJobsStorage
+
+    sudo touch /var/cache/$CONTAINER_FIRST_STARTUP
 fi
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
