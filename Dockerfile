@@ -25,7 +25,10 @@ COPY --chown=${USER}:${USER} . ${WORKDIR}
 WORKDIR ${WORKDIR}
 
 RUN mkdir -p ${PUBLISHDIR} \
-    && dotnet publish *.fsproj --output ${PUBLISHDIR}
+    && dotnet publish *.fsproj --output ${PUBLISHDIR} \
+    && chown -R ${USER}:${USER} bin/ \
+    && chown -R ${USER}:${USER} obj/ \
+    && sudo chown -R ${USER}:${USER} /tmp/NuGetScratch/
 
 USER ${USER}
 
