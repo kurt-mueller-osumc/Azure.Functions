@@ -3,5 +3,11 @@
     "azureFunctions.projectLanguage": "F#",
     "azureFunctions.projectRuntime": "~4",
     "debug.internalConsoleOptions": "neverOpen",
-    "azureFunctions.preDeployTask": "publish (functions)"
+    "azureFunctions.preDeployTask": "publish (functions)",
+    "logViewer.watch": [
+        {
+            "title": "Functions Log",
+            "pattern": "/app/bin/output/azure.starter.functions.log"
+        }
+    ]
 }
