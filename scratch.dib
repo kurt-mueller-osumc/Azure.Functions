@@ -1,0 +1,25 @@
+#!fsharp
+
+#r "nuget: Azure.Storage.Blobs, 12.11.0-beta.2"
+
+open System
+
+open Azure.Storage.Blobs
+
+#!fsharp
+
+let connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage")
+
+connectionString
+
+#!fsharp
+
+let serviceClient = BlobServiceClient(connectionString)
+
+serviceClient.GetBlobContainers()
+
+#!fsharp
+
+let searchClause = "@container = 'samples-workitems'"
+
+serviceClient.FindBlobsByTags(searchClause)
