@@ -24,3 +24,5 @@ docker compose run --rm functions /bin/bash -c "az storage blob upload --file te
 # from inside the running container
 az storage blob upload --file test.txt --container-name samples-workitems --connection-string $AzureWebJobsStorage
 ```
+
+You can find the functions log here: `/app/bin/output/azure.starter.functions.log`.
