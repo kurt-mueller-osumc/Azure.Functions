@@ -6,6 +6,7 @@ open Microsoft.Extensions.Hosting
 open Serilog
 
 /// Add our own logger so we can write both to the console and append to a file.
+/// You'll be able to find the the log in the /bin/output folder from the project root.
 let configureServices (ctx: HostBuilderContext) (services: IServiceCollection) : unit =
     let logFilename = "azure.starter.functions.log"
 
